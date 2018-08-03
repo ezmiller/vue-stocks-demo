@@ -1,17 +1,28 @@
 <template>
-  <div id="app">
-    <h1>{{ msg }}</h1>
+  <div id="app" class="container">
+    <search-form />
+    <div class="stocks">
+      <div v-for="stock in stocks">
+        <stock :stock="stock"></stock>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import store from './store';
+import { mapGetters } from 'vuex';
+import SearchForm from './components/SearchForm.vue';
+import Stock from './components/Stock.vue';
+
 export default {
   name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  store,
+  components: {
+    searchForm: SearchForm,
+    stock: Stock,
+  },
+  computed: mapGetters(['stocks']),
 }
 </script>
 
