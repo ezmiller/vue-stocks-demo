@@ -23,8 +23,6 @@ export const fetchPrices = async ({ commit }, ticker) => {
     console.error(e);
   }
 
-  console.log(data);
-
   commit(FETCH_PRICES_SUCCESS, {
     ticker,
     data,

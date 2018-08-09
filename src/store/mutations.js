@@ -22,7 +22,7 @@ export const fetchPricesSuccess = (state, payload) => {
   state.prices = {
     ...state.prices,
     [payload.ticker]: {
-      data: camelizeKeys(payload.data),
+      data: payload.data['Time Series (1min)'],
       fetching: false
     },
   };
