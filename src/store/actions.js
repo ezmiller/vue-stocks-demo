@@ -9,7 +9,12 @@ const FETCH_PRICES_FAILURE = 'fetchPricesFailure';
 
 export const fetchPrices = async ({ commit }, ticker) => {
   let response, data;
-  const key= "***REMOVED***";
+
+  if(!process.env.API_KEY) {
+    throw Error('The API_KEY is not defined.')
+  }
+
+  const key = process.env.API_KEY;
   const url =
     `http://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=1min&apikey=${key}`
 
