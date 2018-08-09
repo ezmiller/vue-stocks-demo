@@ -53,7 +53,6 @@ export default {
       );
 
       const data = convertDateKeys(convertTime, this.closingPrices);
-      console.log(data)
 
       x.domain(d3.extent(data, d => parseTime(d.date)));
       y.domain(d3.extent(data, d => d.price));
